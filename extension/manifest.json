@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "AIShield",
+  "version": "1.0.0",
+  "description": "Real-Time AI Spam Detection for Social Media",
+
+  "permissions": [
+    "activeTab",
+    "storage",
+    "tabs"
+  ],
+
+  "host_permissions": [
+    "http://127.0.0.1:8000/*",
+    "https://www.instagram.com/*"
+  ],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "action": {
+    "default_popup": "popup.html"
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.instagram.com/*"
+      ],
+      "js": [
+        "api.js",
+        "highlighter.js",
+        "detector.js",
+        "content.js"
+      ]
+    }
+  ]
+}

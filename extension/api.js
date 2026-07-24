@@ -8,6 +8,8 @@ async function predictComment(text) {
                 text: text
             },
             (response) => {
+		console.log("Response from background:", response);
+		console.log("Runtime error:", chrome.runtime.lastError);
                 resolve(response);
             }
         );

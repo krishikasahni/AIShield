@@ -6,12 +6,11 @@ from backend.schemas import CommentRequest
 app = FastAPI(title="AIShield API")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["*"],   # or ["chrome-extension://YOUR_EXTENSION_ID"]
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 @app.get("/")
 def home():
     return {

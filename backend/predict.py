@@ -12,12 +12,16 @@ vectorizer = joblib.load(MODEL_DIR / "vectorizer.pkl")
 
 
 def predict_comment(text):
+    print("Received text:", text)
 
     cleaned = clean_text(text)
+    print("Cleaned:", cleaned)
 
     vector = vectorizer.transform([cleaned])
+    print("Vectorized")
 
     prediction = model.predict(vector)[0]
+    print("Predicted:", prediction)
 
     probability = model.predict_proba(vector)[0].max()
 

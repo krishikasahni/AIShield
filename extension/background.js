@@ -2,7 +2,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
     if (request.type === "predict") {
 
-        fetch("http://localhost:8000/predict", {
+        fetch("https://aishield-wq0t.onrender.com/predict", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
